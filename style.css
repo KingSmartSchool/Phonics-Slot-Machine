@@ -1,3 +1,10 @@
+/* 基本重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #2b2b2b;
@@ -8,7 +15,40 @@ body {
     padding: 20px;
 }
 
-/* Slot machine container */
+/* 主容器 */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* 控制選單與拉霸機之間的間距 */
+}
+
+/* 選單容器 */
+.menu-container {
+    background-color: #444;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.menu-container label {
+    color: #fff;
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.menu-container select {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ffd700;
+    color: #333;
+    font-weight: bold;
+}
+
+/* 拉霸機容器 */
 .slot-machine-container {
     text-align: center;
     background-color: #333;
@@ -20,7 +60,7 @@ body {
     border: 5px solid #ffd700;
 }
 
-/* Title styling */
+/* 標題樣式 */
 h1 {
     font-size: 24px;
     color: #ffd700;
@@ -28,14 +68,14 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Slot machine reels */
+/* 拉霸機捲軸 */
 .slot-machine {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
 }
 
-/* Individual reels */
+/* 個別捲軸 */
 .reel {
     width: 100px;
     height: 100px;
@@ -53,7 +93,7 @@ h1 {
     background-image: radial-gradient(circle, #f1f1f1, #ccc);
 }
 
-/* Spin button styling */
+/* Spin 按鈕樣式 */
 button {
     background-color: #ff0000;
     color: white;
@@ -66,7 +106,7 @@ button {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Button hover and active states */
+/* 按鈕懸停和點擊狀態 */
 button:hover {
     background-color: #cc0000;
 }
@@ -75,7 +115,7 @@ button:active {
     transform: scale(0.98);
 }
 
-/* Lever styling */
+/* 操縱桿樣式 */
 .lever-container {
     position: absolute;
     right: -40px;
@@ -100,14 +140,14 @@ button:active {
     animation: lever-pull 0.5s ease-in-out;
 }
 
-/* Lever animation */
+/* 操縱桿動畫 */
 @keyframes lever-pull {
     0% { top: -40px; }
     50% { top: 80px; }
     100% { top: -40px; }
 }
 
-/* Spin animation */
+/* Spin 動畫 */
 .reel.spin {
     animation: spin 0.5s ease-in-out;
 }
