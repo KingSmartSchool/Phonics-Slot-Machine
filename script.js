@@ -1,4 +1,4 @@
-const reel1 = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Z', 'Y']; // 20 consonants + 1 semivowel
+const reel1 = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'Z', 'Y']; // 20 consonants + 1 semivowel
 const reel2 = ['A', 'E', 'I', 'O', 'U']; // 5 vowels
 const reel3 = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Z']; // 20 consonants
 
