@@ -1,13 +1,63 @@
-const reel1 = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'Z', 'Y']; // 20 consonants + 1 semivowel (without X)
-const reel2 = ['A', 'E', 'I', 'O', 'U']; // 5 vowels
-const reel3 = ['B', 'C', 'D', 'F', 'G', 'K', 'L', 'M', 'N', 'P', 'S', 'T', 'V', 'Z']; // without J, H, Q, R, and W
+// Default sets for different versions of the slot machine
+const versions = {
+    default: {
+        reel1: ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'Z', 'Y'],
+        reel2: ['A', 'E', 'I', 'O', 'U'],
+        reel3: ['B', 'C', 'D', 'F', 'G', 'K', 'L', 'M', 'N', 'P', 'S', 'T', 'V', 'Z']
+    },
+    ae: {
+        reel1: ['B', 'C', 'D', 'F'],
+        reel2: ['A', 'E'],
+        reel3: ['B', 'C', 'D', 'F']
+    },
+    ei: {
+        reel1: ['B', 'C', 'D', 'F'],
+        reel2: ['E', 'I'],
+        reel3: ['B', 'C', 'D', 'F']
+    },
+    ou: {
+        reel1: ['B', 'C', 'D', 'F'],
+        reel2: ['O', 'U'],
+        reel3: ['B', 'C', 'D', 'F']
+    },
+    au: {
+        reel1: ['B', 'C', 'D', 'F'],
+        reel2: ['A', 'U'],
+        reel3: ['B', 'C', 'D', 'F']
+    },
+    'long-a-short-a-e': {
+        reel1: ['B', 'C', 'D', 'F'],
+        reel2: ['A', 'E', 'A'],
+        reel3: ['B', 'C', 'D', 'F']
+    },
+    'long-e-short-i': {
+        reel1: ['B', 'C', 'D', 'F'],
+        reel2: ['E', 'I'],
+        reel3: ['B', 'C', 'D', 'F']
+    },
+    'long-i-short-i-e': {
+        reel1: ['B', 'C', 'D', 'F'],
+        reel2: ['I', 'I', 'E'],
+        reel3: ['B', 'C', 'D', 'F']
+    }
+};
+
+// Initialize with the default version
+let currentVersion = versions.default;
 
 // Function to randomly select an item from an array
 function getRandomItem(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 }
 
-// Function to add spin animation and update reels
+// Function to update reels according to the selected version
+function updateReels() {
+    document.getElementById('reel1').textContent = getRandomItem(currentVersion.reel1);
+    document.getElementById('reel2').textContent = getRandomItem(currentVersion.reel2);
+    document.getElementById('reel3').textContent = getRandomItem(currentVersion.reel3);
+}
+
+// Function to spin the reels
 function spinReels() {
     const reel1Element = document.getElementById('reel1');
     const reel2Element = document.getElementById('reel2');
@@ -20,15 +70,17 @@ function spinReels() {
     
     // Set a timeout to remove the animation class and update the text
     setTimeout(() => {
-        reel1Element.textContent = getRandomItem(reel1);
-        reel2Element.textContent = getRandomItem(reel2);
-        reel3Element.textContent = getRandomItem(reel3);
-        
-        // Remove animation class after spin
+        updateReels();
         reel1Element.classList.remove('spin');
         reel2Element.classList.remove('spin');
         reel3Element.classList.remove('spin');
     }, 500); // Animation duration matches the CSS animation time
 }
 
+// Handle version selection
+document.getElementById('version-select').addEventListener('change', function() {
+    currentVersion = versions[this.value]; // Update the current version based on selection
+});
+
+// Add event listener to the spin button
 document.getElementById('spinButton').addEventListener('click', spinReels);
