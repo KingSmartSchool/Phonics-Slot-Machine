@@ -55,9 +55,11 @@ function updateReels() {
 
     // Check if reel2 has a longer string and split it across multiple reels
     const reel2Value = getRandomItem(currentVersion.reel2).split('');
-    document.getElementById('reel2').textContent = reel2Value[0] || ''; // First letter goes to reel2
-    document.getElementById('reel3').textContent = reel2Value[1] || ''; // Second letter goes to reel3
-    document.getElementById('reel4').textContent = reel2Value[2] || ''; // Third letter goes to reel4
+    
+    // Check if the string in reel2Value has multiple characters, distribute them across reels
+    document.getElementById('reel2').textContent = reel2Value[0] || ''; // First character to reel2
+    document.getElementById('reel3').textContent = reel2Value[1] || ''; // Second character to reel3
+    document.getElementById('reel4').textContent = reel2Value[2] || ''; // Third character to reel4
 }
 
 // Function to spin the reels
