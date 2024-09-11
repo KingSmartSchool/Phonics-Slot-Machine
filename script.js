@@ -27,9 +27,7 @@ const versions = {
     },
     'long-a-short-a-e': {
         reel1: ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'Z', 'Y'],
-        reel2: ['A', 'E', 'A'],
-        reel3: ['B', 'C', 'D', 'F', 'G', 'K', 'L', 'M', 'N', 'P', 'S', 'T', 'V', 'Z'],
-        reel4: ['A', 'E'] // Fourth reel
+        reel2: ['ABE', 'ADE', 'AFE','AGE','AKE','ALE','AME','ANE','APE','ARE','ASE','ATE','AVE','AID','AIL','AIM','AIN','AIP','AIR','AIS','AIT','AIZ','AY','AB','AC','AD','AF','AG','AK','AM','AN','AP','AS','AT','AZ',]
     },
     'long-e-short-i': {
         reel1: ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'Z', 'Y'],
