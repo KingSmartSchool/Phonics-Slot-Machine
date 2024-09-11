@@ -29,7 +29,7 @@ const versions = {
         reel1: ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'Z', 'Y'],
         reel2: ['A', 'E', 'A'],
         reel3: ['B', 'C', 'D', 'F', 'G', 'K', 'L', 'M', 'N', 'P', 'S', 'T', 'V', 'Z'],
-        reel4: ['B', 'C', 'D', 'F', 'G', 'K', 'L', 'M', 'N', 'P', 'S', 'T', 'V', 'Z'],
+        reel4: ['A', 'E'] // Fourth reel
     },
     'long-e-short-i': {
         reel1: ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'Z', 'Y'],
@@ -56,6 +56,13 @@ function updateReels() {
     document.getElementById('reel1').textContent = getRandomItem(currentVersion.reel1);
     document.getElementById('reel2').textContent = getRandomItem(currentVersion.reel2);
     document.getElementById('reel3').textContent = getRandomItem(currentVersion.reel3);
+
+    if (currentVersion.reel4) {
+        document.getElementById('reel4').style.display = "block";
+        document.getElementById('reel4').textContent = getRandomItem(currentVersion.reel4);
+    } else {
+        document.getElementById('reel4').style.display = "none";
+    }
 }
 
 // Function to spin the reels
@@ -63,11 +70,15 @@ function spinReels() {
     const reel1Element = document.getElementById('reel1');
     const reel2Element = document.getElementById('reel2');
     const reel3Element = document.getElementById('reel3');
-    
+    const reel4Element = document.getElementById('reel4'); // Fourth reel
+
     // Add animation class
     reel1Element.classList.add('spin');
     reel2Element.classList.add('spin');
     reel3Element.classList.add('spin');
+    if (currentVersion.reel4) {
+        reel4Element.classList.add('spin');
+    }
     
     // Set a timeout to remove the animation class and update the text
     setTimeout(() => {
@@ -75,12 +86,16 @@ function spinReels() {
         reel1Element.classList.remove('spin');
         reel2Element.classList.remove('spin');
         reel3Element.classList.remove('spin');
+        if (currentVersion.reel4) {
+            reel4Element.classList.remove('spin');
+        }
     }, 500); // Animation duration matches the CSS animation time
 }
 
 // Handle version selection
 document.getElementById('version-select').addEventListener('change', function() {
     currentVersion = versions[this.value]; // Update the current version based on selection
+    updateReels(); // Call updateReels to adjust the number of reels
 });
 
 // Add event listener to the spin button
