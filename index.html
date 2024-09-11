@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +7,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="slot-machine-container">
-        <h1>金聰明學院 自然發音拉霸機</h1>
-        
-        <!-- Dropdown to select the version -->
-        <div>
-            <label for="version-select">Choose a version:</label>
+    <div class="main-container">
+        <!-- 選單容器 -->
+        <div class="menu-container">
+            <label for="version-select">選擇版本：</label>
             <select id="version-select">
                 <option value="default">短母音練習</option>
                 <option value="ae">短母音a和e</option>
@@ -24,15 +22,19 @@
                 <option value="long-i-short-i-e">長母音i、短母音i、短母音e</option>
             </select>
         </div>
-        
-        <div class="slot-machine">
-            <div class="reel" id="reel1">C1</div>
-            <div class="reel" id="reel2">V</div>
-            <div class="reel" id="reel3">C2</div>
-        </div>
-        <button id="spinButton">Spin!</button>
-        <div class="lever-container">
-            <div class="lever" id="lever"></div>
+
+        <!-- 拉霸機容器 -->
+        <div class="slot-machine-container">
+            <h1>金聰明學院 自然發音拉霸機</h1>
+            <div class="slot-machine">
+                <div class="reel" id="reel1">C1</div>
+                <div class="reel" id="reel2">V</div>
+                <div class="reel" id="reel3">C2</div>
+            </div>
+            <button id="spinButton">Spin!</button>
+            <div class="lever-container">
+                <div class="lever" id="lever"></div>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
