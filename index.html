@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,36 +7,36 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="main-container">
-        <!-- 選單容器 -->
-        <div class="menu-container">
-            <label for="version-select">選擇版本：</label>
-            <select id="version-select">
-                <option value="default">短母音練習</option>
-                <option value="ae">短母音a和e</option>
-                <option value="ei">短母音e和i</option>
-                <option value="ou">短母音o和u</option>
-                <option value="au">短母音a和u</option>
-                <option value="long-a-short-a-e">長母音a、短母音a、短母音e</option>
-                <option value="long-e-short-i">長母音e、短母音i</option>
-                <option value="long-i-short-i-e">長母音i、短母音i、短母音e</option>
-            </select>
-        </div>
+    <h1>金聰明學院 自然發音拉霸機</h1>
 
-        <!-- 拉霸機容器 -->
-        <div class="slot-machine-container">
-            <h1>金聰明學院 自然發音拉霸機</h1>
-            <div class="slot-machine">
-                <div class="reel" id="reel1">C1</div>
-                <div class="reel" id="reel2">V</div>
-                <div class="reel" id="reel3">C2</div>
-            </div>
-            <button id="spinButton">Spin!</button>
-            <div class="lever-container">
-                <div class="lever" id="lever"></div>
-            </div>
+    <!-- Dropdown outside the slot machine -->
+    <div class="menu-container">
+        <label for="version-select">Choose a version:</label>
+        <select id="version-select">
+            <option value="default">短母音練習</option>
+            <option value="ae">短母音a和e</option>
+            <option value="ei">短母音e和i</option>
+            <option value="ou">短母音o和u</option>
+            <option value="au">短母音a和u</option>
+            <option value="long-a-short-a-e">長母音a、短母音a、短母音e</option>
+            <option value="long-e-short-i">長母音e、短母音i</option>
+            <option value="long-i-short-i-e">長母音i、短母音i、短母音e</option>
+        </select>
+    </div>
+
+    <div class="slot-machine-container">
+        <div class="slot-machine">
+            <div class="reel" id="reel1">C1</div>
+            <div class="reel" id="reel2">V</div>
+            <div class="reel" id="reel3">C2</div>
+            <div class="reel" id="reel4" style="display: none;">C3</div> <!-- Added reel4, hidden by default -->
+        </div>
+        <button id="spinButton">Spin!</button>
+        <div class="lever-container">
+            <div class="lever" id="lever"></div>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
