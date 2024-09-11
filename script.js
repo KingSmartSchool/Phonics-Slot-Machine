@@ -27,7 +27,7 @@ const versions = {
     },
     'long-a-short-a-e': {
         reel1: ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'Z', 'Y'],
-        reel2: ['ABE', 'ADE', 'AFE','AGE','AKE','ALE','AME','ANE','APE','ARE','ASE','ATE','AVE','AID','AIL','AIM','AIN','AIP','AIR','AIS','AIT','AIZ','AY','AB','AC','AD','AF','AG','AK','AM','AN','AP','AS','AT','AZ',]
+        reel2: ['ABE', 'ADE', 'AFE','AGE','AKE','ALE','AME','ANE','APE','ARE','ASE','ATE','AVE','AID','AIL','AIM','AIN','AIP','AIR','AIS','AIT','AIZ','AY','AB','AC','AD','AF','AG','AK','AM','AN','AP','AS','AT','AZ']
     },
     'long-e-short-i': {
         reel1: ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'Z', 'Y'],
@@ -52,15 +52,12 @@ function getRandomItem(arr) {
 // Function to update reels according to the selected version
 function updateReels() {
     document.getElementById('reel1').textContent = getRandomItem(currentVersion.reel1);
-    document.getElementById('reel2').textContent = getRandomItem(currentVersion.reel2);
-    document.getElementById('reel3').textContent = getRandomItem(currentVersion.reel3);
 
-    if (currentVersion.reel4) {
-        document.getElementById('reel4').style.display = "block";
-        document.getElementById('reel4').textContent = getRandomItem(currentVersion.reel4);
-    } else {
-        document.getElementById('reel4').style.display = "none";
-    }
+    // Check if reel2 has a longer string and split it across multiple reels
+    const reel2Value = getRandomItem(currentVersion.reel2).split('');
+    document.getElementById('reel2').textContent = reel2Value[0] || ''; // First letter goes to reel2
+    document.getElementById('reel3').textContent = reel2Value[1] || ''; // Second letter goes to reel3
+    document.getElementById('reel4').textContent = reel2Value[2] || ''; // Third letter goes to reel4
 }
 
 // Function to spin the reels
@@ -68,25 +65,21 @@ function spinReels() {
     const reel1Element = document.getElementById('reel1');
     const reel2Element = document.getElementById('reel2');
     const reel3Element = document.getElementById('reel3');
-    const reel4Element = document.getElementById('reel4'); // Fourth reel
+    const reel4Element = document.getElementById('reel4');
 
     // Add animation class
     reel1Element.classList.add('spin');
     reel2Element.classList.add('spin');
     reel3Element.classList.add('spin');
-    if (currentVersion.reel4) {
-        reel4Element.classList.add('spin');
-    }
-    
+    reel4Element.classList.add('spin');
+
     // Set a timeout to remove the animation class and update the text
     setTimeout(() => {
         updateReels();
         reel1Element.classList.remove('spin');
         reel2Element.classList.remove('spin');
         reel3Element.classList.remove('spin');
-        if (currentVersion.reel4) {
-            reel4Element.classList.remove('spin');
-        }
+        reel4Element.classList.remove('spin');
     }, 500); // Animation duration matches the CSS animation time
 }
 
