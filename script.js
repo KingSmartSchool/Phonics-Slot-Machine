@@ -1,6 +1,6 @@
 const reel1 = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'Z', 'Y']; // 20 consonants + 1 semivowel (without X)
 const reel2 = ['A', 'E', 'I', 'O', 'U']; // 5 vowels
-const reel3 = ['B', 'C', 'D', 'F', 'G', 'K', 'L', 'M', 'N', 'P', 'S', 'T', 'V', 'W', 'Z']; // without J, H, Q, and R
+const reel3 = ['B', 'C', 'D', 'F', 'G', 'K', 'L', 'M', 'N', 'P', 'S', 'T', 'V', 'Z']; // without J, H, Q, R, and W
 
 function getRandomItem(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
