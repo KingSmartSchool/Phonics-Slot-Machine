@@ -46,12 +46,12 @@ select {
     border-radius: 20px;
     box-shadow: 0 12px 50px rgba(0, 0, 0, 0.5);
     padding: 30px;
-    width: 500px; /* 調整寬度以適應四個轉輪 */
+    width: 400px; /* 調整寬度以適應三個轉輪 */
     position: relative;
     border: 5px solid #ffd700;
     text-align: center;
     display: flex;
-    flex-direction: column; /* 確保轉輪垂直堆疊 */
+    flex-direction: column;
     align-items: center;
 }
 
@@ -60,13 +60,13 @@ select {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
-    gap: 10px; /* 增加轉輪之間的間距 */
+    gap: 20px; /* 調整轉輪之間的間距 */
 }
 
 /* Individual reels */
 .reel {
-    width: 80px; /* 確保四個轉輪能夠顯示在螢幕上 */
-    height: 100px;
+    width: 100px; /* 根據三個轉輪調整寬度 */
+    height: 120px;
     background-color: #fff;
     border-radius: 15px;
     display: flex;
